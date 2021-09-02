@@ -14,7 +14,8 @@
 
 ## Functionality:
 
-- See a sorted list of hundreds of recipes
+- See a sorted list of hundreds of recipes.
+  - When a recipe is scrolled over, see a small box that displays a description of that recipe. And provides a link to the cook it up website.
 - See multiple charts containing calories, fat, sugar, and cholesterol for that recipe. 
   - Be able to toggle between the charts.
 - ***Stretch goal***: Select up to 5 recipes and then see a bar chart which will compare fat, sugar, calories, and cholesterol for those recipes.
