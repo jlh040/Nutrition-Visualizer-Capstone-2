@@ -2,7 +2,7 @@
 
 ## Goal:
 
-- The goal of this application is to allow users to view nutrition data for recipes and compare nutrition data between recipes in order to lose weight and feel better about themselves and get a great summer body.
+- The goal of this application is to help users bulk up or slim down in order to craft their summer body.
 
 ## Demographics:
 
