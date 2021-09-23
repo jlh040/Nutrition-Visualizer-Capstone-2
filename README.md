@@ -11,6 +11,7 @@
 ## Functionality:
 
 - People will be able to compare multiple recipes that can then be incorporated into their diet.
+- They will be able to click a 'bulk up' or 'slim down' button, and have appropriate recipes be displayed to them.
 - They will have the ability to select up to 3 recipes from a scrollable list, and have the nutritional value for those recipes show up in a single chart.
 
 - **Stretch goal**: They will be able to see which recipes, among selected recipes, have the maximum amount of protein and minimum amount of fat.
