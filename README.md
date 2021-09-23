@@ -1,12 +1,12 @@
-# Nutrition Visualizer
+# Summer Body
 
 ## Goal:
 
-- The goal of this application is to allow users to view nutrition data for recipes and compare nutrition data between recipes.
+- The goal of this application is to allow users to view nutrition data for recipes and compare nutrition data between recipes in order to lose weight and feel better about themselves and get a great summer body.
 
 ## Demographics:
 
-- People aged 13+ who are interested in monitoring the nutrition value of the food that they cook.
+- People aged 18+ who are interested in monitoring the nutrition value of the food that they cook.
 
 ## Motivation:
 
@@ -18,7 +18,7 @@
   - When a recipe is scrolled over, see a small box that displays a description of that recipe. And provides a link to the cook it up website.
 - See multiple charts containing calories, fat, sugar, and cholesterol for that recipe. 
   - Be able to toggle between the charts.
-- ***Stretch goal***: Select up to 5 recipes and then see a bar chart which will compare fat, sugar, calories, and cholesterol for those recipes.
+- ***Stretch goal***: Select up to 3-5 recipes and then see a bar chart which will compare fat, sugar, calories, and cholesterol for those recipes.
   - Be able to toggle between the charts.
 
 ### Technicalities:
