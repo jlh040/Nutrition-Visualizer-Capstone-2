@@ -2,7 +2,7 @@
 
 ## Goal:
 
-- The goal of this application is to help users bulk up or slim down in order to craft their summer body.
+- The goal of this application is to help users bulk up or slim down in order to craft their summer body, by providing nutritional data.
 
 ## Demographics:
 
