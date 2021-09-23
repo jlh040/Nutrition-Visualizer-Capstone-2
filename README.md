@@ -19,5 +19,6 @@
 
 - I will use D3.js, Node.js, React.js and Material UI for this project.
 - I will be using the [Spoonacular API](https://spoonacular.com/food-api/docs) similar to my first capstone.
+- All recipe data will be captured via API calls from a class.
 - ***Stretch goal***: Have a table for ***users*** and ***favorites*** so I can have signup and favorite-recipe capabilities.
 
