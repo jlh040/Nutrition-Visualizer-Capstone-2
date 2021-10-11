@@ -1,9 +1,18 @@
+import React from 'react';
 import './App.css';
+import Grid from '@mui/material/Grid';
 
-function App() {
+const App = () => {
   return (
     <div className="App">
-      <h1>Hello there</h1>
+        <Grid container justifyContent="center" spacing={9}>
+          <Grid item xs={6} sx={{textAlign: 'center'}}>
+            Hello there!
+          </Grid>
+          <Grid item xs={6}>
+            Something is here!
+          </Grid>
+        </Grid>
     </div>
   );
 }
