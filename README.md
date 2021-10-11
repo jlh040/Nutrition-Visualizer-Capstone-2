@@ -2,19 +2,17 @@
 
 ## Goal:
 
-- The goal of this application is to help users bulk up or slim down in order to craft their summer body, by providing nutritional data for meals that they can cook.
+- The goal of this application is to help users craft their summer body, by providing nutritional data for their meals.
 
 ## Demographics:
 
-- This application is geared toward single men and women in their 30s who would like to be able to show off their body at the beach or at the pool.
+- This application is geared toward single people in their 30s who would like to show off their body.
 
 ## Functionality:
 
-- People will be able to compare multiple recipes that can then be incorporated into their diet.
-- They will be able to click a 'bulk up' or 'slim down' button, and have appropriate recipes be displayed to them.
-- They will have the ability to select up to 3 recipes from a scrollable list, and have the nutritional value for those recipes show up in a single chart.
-
-- **Stretch goal**: They will be able to see which recipes, among selected recipes, have the maximum amount of protein and minimum amount of fat.
+- Users will be able to compare the nutritional data of multiple recipes.
+- They will be able to select between two goals: 'bulk up' or 'slim down', then the system will show recipes matching their intentions.
+- **Stretch goal**: Have a way for people to sign up and favorite recipes.
 
 ### Technicalities:
 
