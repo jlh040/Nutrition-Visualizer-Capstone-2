@@ -1,4 +1,5 @@
 import React from 'react';
+import ChartWrapper from './ChartWrapper';
 import './App.css';
 import Grid from '@mui/material/Grid';
 
@@ -10,7 +11,7 @@ const App = () => {
             Hello there!
           </Grid>
           <Grid item xs={6}>
-            Something is here!
+            <ChartWrapper />
           </Grid>
         </Grid>
     </div>
