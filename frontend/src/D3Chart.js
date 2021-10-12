@@ -18,10 +18,10 @@ class D3Chart {
 
 
     const rects = vis.g.selectAll('rect')
-      .data(data)
+      .data(data);
     
     rects.enter()
-      
+
     
   }
 
