@@ -68,7 +68,7 @@ class D3Chart {
         0,
         d3.max(vis.data, d => d.fat)
       ])
-      .range([0, HEIGHT]);
+      .range([HEIGHT, 0]);
     
     const yAxisCall = d3.axisLeft(y)
     vis.yAxisGroup
@@ -79,8 +79,8 @@ class D3Chart {
     
     rects.enter().append('rect')
       .attr('x', d => x(d.title))
-      .attr('y', d => HEIGHT - y(d.fat))
-      .attr('height', d => y(d.fat))
+      .attr('y', d => y(d.fat))
+      .attr('height', d =>  HEIGHT - y(d.fat))
       .attr('width', x.bandwidth())
       .attr('fill', 'lime')
 
