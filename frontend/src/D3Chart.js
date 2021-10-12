@@ -42,6 +42,10 @@ class D3Chart {
       .attr('text-anchor', 'middle')
       .text('Amount of fat (grams)')
       .attr('transform', 'rotate(-90)')
+    
+    vis.xAxisGroup = vis.g.append('g')
+      .attr('transform', `translate(0, ${HEIGHT})`)
+    
 
   }
 
@@ -52,6 +56,10 @@ class D3Chart {
       .domain(vis.data.map(d => d.title))
       .range([0, WIDTH])
       .paddingInner(0.4)
+
+    const xAxisCall = d3.axisBottom(x);
+    vis.xAxisGroup
+      .call(xAxisCall);
     
     const y = d3.scaleLinear()
       .domain([
