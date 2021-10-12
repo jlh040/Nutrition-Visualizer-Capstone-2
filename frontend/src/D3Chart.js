@@ -17,20 +17,21 @@ class D3Chart {
 
 
     d3.json(getUrl())
-      .then(data => {
-        const recipeInfo = data.results.map(d => {
+      .then(resp => {
+        vis.data = resp.results.map(d => {
           return {
             title: d.title,
             fat: d.nutrition.nutrients[0].amount
           }
         })
-        console.log(recipeInfo);
-        vis.data = data;
       })
-    const rects = vis.g.selectAll('rect')
-      .data(vis);
-    
-    rects.enter()
+      .catch(e => {
+        console.log(e);
+      });
+
+    const x = d3.scaleBand()
+      .domain(vis.data.map(d => d.title))
+      .range([0, WIDTH]);
 
     
   }
