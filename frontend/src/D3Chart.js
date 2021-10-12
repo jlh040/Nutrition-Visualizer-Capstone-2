@@ -44,8 +44,9 @@ class D3Chart {
       .attr('transform', 'rotate(-90)')
     
     vis.xAxisGroup = vis.g.append('g')
-      .attr('transform', `translate(0, ${HEIGHT})`)
+      .attr('transform', `translate(0, ${HEIGHT})`);
     
+    vis.yAxisGroup = vis.g.append('g');
 
   }
 
@@ -56,6 +57,7 @@ class D3Chart {
       .domain(vis.data.map(d => d.title))
       .range([0, WIDTH])
       .paddingInner(0.4)
+      .paddingOuter(0.1);
 
     const xAxisCall = d3.axisBottom(x);
     vis.xAxisGroup
@@ -67,6 +69,10 @@ class D3Chart {
         d3.max(vis.data, d => d.fat)
       ])
       .range([0, HEIGHT]);
+    
+    const yAxisCall = d3.axisLeft(y)
+    vis.yAxisGroup
+      .call(yAxisCall);
 
     const rects = vis.g.selectAll('rect')
       .data(vis.data)
