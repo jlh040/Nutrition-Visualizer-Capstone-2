@@ -1,5 +1,5 @@
 import * as d3 from 'd3';
-import { apiKey, getUrl } from './config';
+import getUrl from './config';
 
 const MARGIN = {TOP: 10, BOTTOM: 10, LEFT: 10, RIGHT: 10};
 const WIDTH = 800 - MARGIN.LEFT - MARGIN.RIGHT;
@@ -16,9 +16,19 @@ class D3Chart {
         .attr('transform', `translate(${MARGIN.LEFT}, ${MARGIN.TOP})`);
 
 
-
+    d3.json(getUrl())
+      .then(data => {
+        const recipeInfo = data.results.map(d => {
+          return {
+            title: d.title,
+            fat: d.nutrition.nutrients[0].amount
+          }
+        })
+        console.log(recipeInfo);
+        vis.data = data;
+      })
     const rects = vis.g.selectAll('rect')
-      .data(data);
+      .data(vis);
     
     rects.enter()
 
