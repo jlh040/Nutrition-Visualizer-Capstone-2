@@ -32,6 +32,12 @@ class D3Chart {
     const x = d3.scaleBand()
       .domain(vis.data.map(d => d.title))
       .range([0, WIDTH]);
+    
+    const y = d3.scaleLinear()
+      .domain([
+        d3.min(vis.data, d => d.fat),
+        d3.max(vis.data, d => d.fat)
+      ])
 
     
   }
