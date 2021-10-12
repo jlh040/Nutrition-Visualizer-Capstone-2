@@ -1,8 +1,8 @@
 import * as d3 from 'd3';
 import getUrl from './config';
 
-const MARGIN = {TOP: 10, BOTTOM: 75, LEFT: 40, RIGHT: 10};
-const WIDTH = 586 - MARGIN.LEFT - MARGIN.RIGHT;
+const MARGIN = {TOP: 10, BOTTOM: 75, LEFT: 50, RIGHT: 10};
+const WIDTH = 600 - MARGIN.LEFT - MARGIN.RIGHT;
 const HEIGHT = 500 - MARGIN.TOP - MARGIN.BOTTOM;
 
 class D3Chart {
@@ -35,6 +35,13 @@ class D3Chart {
       .attr('y', HEIGHT + 70)
       .attr('text-anchor', 'middle')
       .text('Recipe names')
+    
+    vis.yLabel = vis.g.append('text')
+      .attr('x', -(HEIGHT / 2))
+      .attr('y', -33)
+      .attr('text-anchor', 'middle')
+      .text('Amount of fat (grams)')
+      .attr('transform', 'rotate(-90)')
 
   }
 
