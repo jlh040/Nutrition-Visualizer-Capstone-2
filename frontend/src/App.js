@@ -6,7 +6,7 @@ import Grid from '@mui/material/Grid';
 const App = () => {
   return (
     <div className="App">
-        <Grid container justifyContent="center" spacing={9}>
+        <Grid container justifyContent="center">
           <Grid item xs={6} sx={{textAlign: 'center'}}>
             Hello there!
           </Grid>

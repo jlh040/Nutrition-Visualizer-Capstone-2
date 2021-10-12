@@ -1,8 +1,8 @@
 import * as d3 from 'd3';
 import getUrl from './config';
 
-const MARGIN = {TOP: 10, BOTTOM: 10, LEFT: 10, RIGHT: 10};
-const WIDTH = 800 - MARGIN.LEFT - MARGIN.RIGHT;
+const MARGIN = {TOP: 10, BOTTOM: 50, LEFT: 70, RIGHT: 10};
+const WIDTH = 586 - MARGIN.LEFT - MARGIN.RIGHT;
 const HEIGHT = 500 - MARGIN.TOP - MARGIN.BOTTOM;
 
 class D3Chart {
@@ -37,15 +37,25 @@ class D3Chart {
 
     const x = d3.scaleBand()
       .domain(vis.data.map(d => d.title))
-      .range([0, WIDTH]);
+      .range([0, WIDTH])
+      .paddingInner(0.4)
     
     const y = d3.scaleLinear()
       .domain([
-        d3.min(vis.data, d => d.fat),
+        0,
         d3.max(vis.data, d => d.fat)
       ])
-      .range([HEIGHT, 0]);
+      .range([0, HEIGHT]);
 
+    const rects = vis.g.selectAll('rect')
+      .data(vis.data)
+    
+    rects.enter().append('rect')
+      .attr('x', d => x(d.title))
+      .attr('y', d => HEIGHT - y(d.fat))
+      .attr('height', d => y(d.fat))
+      .attr('width', x.bandwidth())
+      .attr('fill', 'lime')
 
   }
 }
