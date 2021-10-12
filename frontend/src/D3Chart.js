@@ -24,10 +24,16 @@ class D3Chart {
             fat: d.nutrition.nutrients[0].amount
           }
         })
+        vis.update();
       })
       .catch(e => {
         console.log(e);
       });
+    
+  }
+
+  update() {
+    const vis = this;
 
     const x = d3.scaleBand()
       .domain(vis.data.map(d => d.title))
@@ -38,12 +44,7 @@ class D3Chart {
         d3.min(vis.data, d => d.fat),
         d3.max(vis.data, d => d.fat)
       ])
-
-    
-  }
-
-  update() {
-    const vis = this;
+      .range([HEIGHT, 0]);
 
 
   }
