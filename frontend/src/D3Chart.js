@@ -15,7 +15,6 @@ class D3Chart {
       .append('g')
         .attr('transform', `translate(${MARGIN.LEFT}, ${MARGIN.TOP})`);
 
-
     d3.json(getUrl())
       .then(resp => {
         vis.data = resp.results.map(d => {
@@ -47,7 +46,6 @@ class D3Chart {
       .attr('transform', `translate(0, ${HEIGHT})`);
     
     vis.yAxisGroup = vis.g.append('g');
-
   }
 
   update() {
