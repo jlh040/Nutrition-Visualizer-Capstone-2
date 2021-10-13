@@ -15,7 +15,7 @@ const App = () => {
             <RecipeList setSelectedRecipes={setSelectedRecipes} />
           </Grid>
           <Grid item xs={8}>
-            <ChartWrapper />
+            <ChartWrapper selectedRecipes={selectedRecipes} />
           </Grid>
         </Grid>
     </div>

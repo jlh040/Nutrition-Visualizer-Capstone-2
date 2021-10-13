@@ -51,7 +51,7 @@ const RecipeList = ({ setSelectedRecipes }) => {
   return (
     <>
       <VirtualizedList renderRow={renderRow} />
-      <Button variant="contained">Compare</Button>
+      <Button variant="contained" onClick={() => setSelectedRecipes(checked)}>Compare</Button>
     </>
   )
 };
