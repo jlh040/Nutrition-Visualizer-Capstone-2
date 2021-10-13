@@ -3,11 +3,17 @@ import RadioButtonGroup from './RadioButtonGroup';
 
 const SelectForm = ({ setDietarySelection }) => {
   const [value, setValue] = useState('fat');
-
+  
   const handleChange = e => {
-    setValue(e.target.value)
-    setDietarySelection(e.target.value)
-  }
+    const { value } = e.target;
+    setValue(() => {
+      return value;
+    })
+    setDietarySelection(() => {
+      return value;
+    })
+  };
+
   return <RadioButtonGroup handleChange={handleChange} value={value} />
 };
 

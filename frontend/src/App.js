@@ -18,7 +18,7 @@ const App = () => {
         </Grid>
         <Grid item xs={8}>
           <SelectForm setDietarySelection={setDietarySelection} />
-          <ChartWrapper selectedRecipes={selectedRecipes} />
+          <ChartWrapper selectedRecipes={selectedRecipes} dietarySelection={dietarySelection} />
         </Grid>
       </Grid>
     </div>
