@@ -80,24 +80,22 @@ class D3Chart {
     vis.yAxisGroup
       .call(yAxisCall);
 
-    const rects = vis.g.selectAll('rect')
-      .data(vis.data)
-    
     // JOIN
-    rects.enter().append('rect')
-      .attr('x', d => x(d.title))
-      .attr('y', d => y(d.fat))
-      .attr('height', d =>  HEIGHT - y(d.fat))
-      .attr('width', x.bandwidth())
-      .attr('fill', 'lime')
+    const rects = vis.g.selectAll('rect')
+      .data(vis.data);
     
     // EXIT
     rects.exit()
       .remove();
 
-    // UPDATE
+    // ENTER
+    rects.enter().append('rect')
+      .attr('x', d => x(d.title))
+      .attr('y', d => y(d.fat))
+      .attr('height', d =>  HEIGHT - y(d.fat))
+      .attr('width', x.bandwidth())
+      .attr('fill', 'lime');
 
-    // DELETE
 
   }
 }
