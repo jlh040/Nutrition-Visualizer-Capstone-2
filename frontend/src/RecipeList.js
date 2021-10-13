@@ -19,7 +19,6 @@ const RecipeList = ({ setSelectedRecipes }) => {
     } else {
       newChecked = newChecked.filter(d => d.title !== obj.title);
     }
-
     setChecked(newChecked);
   };
 
@@ -32,7 +31,14 @@ const RecipeList = ({ setSelectedRecipes }) => {
         style={style}
         disablePadding
       >
-        <ListItemButton onClick={handleToggle({title: props.data[index].title, fat: props.data[index].fat})} dense>
+        <ListItemButton 
+          onClick={handleToggle({
+              title: props.data[index].title, 
+              fat: props.data[index].fat,
+              calories: props.data[index].calories
+          })} 
+          dense
+        >
           <ListItemIcon>
             <Checkbox
               edge="start"

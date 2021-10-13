@@ -10,8 +10,7 @@ const ChartWrapper = ({ selectedRecipes, dietarySelection }) => {
       setChart(new D3Chart(chartElement.current));
     }
     else {
-      console.log(dietarySelection)
-      chart.update(selectedRecipes);
+      chart.update(selectedRecipes, dietarySelection);
     }
   }, [selectedRecipes, chart, dietarySelection]);
 

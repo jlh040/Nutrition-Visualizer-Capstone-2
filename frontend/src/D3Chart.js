@@ -74,7 +74,7 @@ class D3Chart {
     const y = d3.scaleLinear()
       .domain([
         0,
-        d3.max(vis.data, d => d.fat)
+        d3.max(vis.data, d => dietarySelection === 'fat' ? d.fat : d.calories)
       ])
       .range([HEIGHT, 0]);
     
@@ -94,16 +94,16 @@ class D3Chart {
     // UPDATE
     rects
       .attr('x', d => x(d.title))
-      .attr('y', d => y(d.fat))
-      .attr('height', d => HEIGHT - y(d.fat))
+      .attr('y', d => y(dietarySelection === 'fat' ? d.fat : d.calories))
+      .attr('height', d => HEIGHT - y(dietarySelection === 'fat' ? d.fat : d.calories))
       .attr('width', x.bandwidth())
       .attr('fill', 'lime');
 
     // ENTER
     rects.enter().append('rect')
       .attr('x', d => x(d.title))
-      .attr('y', d => y(d.fat))
-      .attr('height', d =>  HEIGHT - y(d.fat))
+      .attr('y', d => y(dietarySelection === 'fat' ? d.fat : d.calories))
+      .attr('height', d =>  HEIGHT - y(dietarySelection === 'fat' ? d.fat : d.calories))
       .attr('width', x.bandwidth())
       .attr('fill', 'lime');
 
