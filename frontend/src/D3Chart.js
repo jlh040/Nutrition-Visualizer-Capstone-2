@@ -48,8 +48,10 @@ class D3Chart {
     vis.yAxisGroup = vis.g.append('g');
   }
 
-  update() {
+  update(selectedRecipes) {
     const vis = this;
+
+    vis.data = selectedRecipes ? selectedRecipes : vis.data;
 
     const x = d3.scaleBand()
       .domain(vis.data.map(d => d.title))
@@ -87,6 +89,14 @@ class D3Chart {
     // EXIT
     rects.exit()
       .remove();
+
+    // UPDATE
+    rects
+      .attr('x', d => x(d.title))
+      .attr('y', d => y(d.fat))
+      .attr('height', d => HEIGHT - y(d.fat))
+      .attr('width', x.bandwidth())
+      .attr('fill', 'lime');
 
     // ENTER
     rects.enter().append('rect')
