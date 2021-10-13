@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import ChartWrapper from './ChartWrapper';
+import SelectForm from './SelectForm';
 import RecipeList from './RecipeList';
 import './App.css';
 import Grid from '@mui/material/Grid';
@@ -10,14 +11,15 @@ const App = () => {
 
   return (
     <div className="App">
-        <Grid container justifyContent="center">
-          <Grid item xs={4}>
-            <RecipeList setSelectedRecipes={setSelectedRecipes} />
-          </Grid>
-          <Grid item xs={8}>
-            <ChartWrapper selectedRecipes={selectedRecipes} />
-          </Grid>
+      <Grid container justifyContent="center">
+        <Grid item xs={4}>
+          <RecipeList setSelectedRecipes={setSelectedRecipes} />
         </Grid>
+        <Grid item xs={8}>
+          <SelectForm />
+          <ChartWrapper selectedRecipes={selectedRecipes} />
+        </Grid>
+      </Grid>
     </div>
   );
 }
