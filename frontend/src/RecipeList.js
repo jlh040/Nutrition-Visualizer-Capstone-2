@@ -40,8 +40,9 @@ const RecipeList = () => {
               disableRipple
               inputProps={{ 'aria-labelledby': index }}
             />
+            {console.log(props)}
           </ListItemIcon>
-          <ListItemText id={index} primary={`Line item ${index + 1}`} />
+          <ListItemText id={index} primary={`${props.data[index].title}`} />
         </ListItemButton>
       </ListItem>
     )

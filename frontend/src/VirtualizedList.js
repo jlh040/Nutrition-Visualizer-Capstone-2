@@ -2,7 +2,9 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import getUrl from './config';
 import Box from '@mui/material/Box';
+import CircularProgress from '@mui/material/CircularProgress';
 import { FixedSizeList } from 'react-window';
+
 
 const VirtualizedList = ({ renderRow }) => {
   const [recipes, setRecipes] = useState(null)
@@ -14,25 +16,25 @@ const VirtualizedList = ({ renderRow }) => {
         fat: d.nutrition.nutrients[0].amount
       }));
       setRecipes(recipes);
-      console.log(recipes);
     }
     getData();
   }, []);
 
   return (
-    <Box
+    (recipes ? <Box
       sx={{ width: '100%', height: 400, maxWidth: 360, bgcolor: 'background.paper' }}
     >
       <FixedSizeList
         height={400}
         width={360}
         itemSize={46}
-        itemCount={200}
+        itemCount={3}
+        itemData={recipes}
         overscanCount={5}
       >
         {renderRow}
       </FixedSizeList>
-    </Box>
+    </Box> : <CircularProgress color="inherit" />)
   );
 };
 
