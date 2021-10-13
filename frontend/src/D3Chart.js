@@ -49,7 +49,7 @@ class D3Chart {
     vis.yAxisGroup = vis.g.append('g');
   }
 
-  update(selectedRecipes) {
+  update(selectedRecipes, dietarySelection) {
     const vis = this;
 
     vis.data = selectedRecipes ? selectedRecipes : vis.data;

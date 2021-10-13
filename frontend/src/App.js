@@ -8,7 +8,7 @@ import Button from '@mui/material/Button';
 
 const App = () => {
   const [selectedRecipes, setSelectedRecipes] = useState([]);
-  const [dietaryValues, setDietaryValues] = useState([])
+  const [dietarySelection, setDietarySelection] = useState('fat');
 
   return (
     <div className="App">
@@ -17,7 +17,7 @@ const App = () => {
           <RecipeList setSelectedRecipes={setSelectedRecipes} />
         </Grid>
         <Grid item xs={8}>
-          <SelectForm />
+          <SelectForm setDietarySelection={setDietarySelection} />
           <ChartWrapper selectedRecipes={selectedRecipes} />
         </Grid>
       </Grid>
