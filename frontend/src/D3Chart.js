@@ -2,7 +2,7 @@ import * as d3 from 'd3';
 import getUrl from './config';
 
 const MARGIN = {TOP: 10, BOTTOM: 75, LEFT: 50, RIGHT: 10};
-const WIDTH = 600 - MARGIN.LEFT - MARGIN.RIGHT;
+const WIDTH = 800 - MARGIN.LEFT - MARGIN.RIGHT;
 const HEIGHT = 500 - MARGIN.TOP - MARGIN.BOTTOM;
 
 class D3Chart {
@@ -32,13 +32,13 @@ class D3Chart {
     
     vis.xLabel = vis.g.append('text')
       .attr('x', WIDTH / 2)
-      .attr('y', HEIGHT + 70)
+      .attr('y', HEIGHT + 30)
       .attr('text-anchor', 'middle')
       .text('Recipe names')
     
     vis.yLabel = vis.g.append('text')
       .attr('x', -(HEIGHT / 2))
-      .attr('y', -33)
+      .attr('y', -34)
       .attr('text-anchor', 'middle')
       .text('Amount of fat (grams)')
       .attr('transform', 'rotate(-90)')
@@ -56,12 +56,19 @@ class D3Chart {
     const x = d3.scaleBand()
       .domain(vis.data.map(d => d.title))
       .range([0, WIDTH])
-      .paddingInner(0.4)
+      .paddingInner(0.5)
       .paddingOuter(0.1);
 
     const xAxisCall = d3.axisBottom(x);
+
     vis.xAxisGroup
-      .call(xAxisCall);
+      .call(xAxisCall)
+    .selectAll('text')
+      .attr('text-anchor', 'end')
+      .attr('dx', '-1em')
+      .attr('dy', '-7em')
+      .attr('font-size', '12px')
+      .attr('transform', 'rotate(90)')
     
     const y = d3.scaleLinear()
       .domain([
@@ -70,7 +77,8 @@ class D3Chart {
       ])
       .range([HEIGHT, 0]);
     
-    const yAxisCall = d3.axisLeft(y)
+    const yAxisCall = d3.axisLeft(y);
+    
     vis.yAxisGroup
       .call(yAxisCall);
 
