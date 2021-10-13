@@ -20,7 +20,8 @@ class D3Chart {
         vis.data = resp.results.map(d => {
           return {
             title: d.title,
-            fat: d.nutrition.nutrients[0].amount
+            fat: d.nutrition.nutrients[1].amount,
+            calories: d.nutrition.nutrients[0].amount
           }
         })
         vis.update();

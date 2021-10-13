@@ -8,6 +8,7 @@ import Button from '@mui/material/Button';
 
 const App = () => {
   const [selectedRecipes, setSelectedRecipes] = useState([]);
+  const [dietaryValues, setDietaryValues] = useState([])
 
   return (
     <div className="App">

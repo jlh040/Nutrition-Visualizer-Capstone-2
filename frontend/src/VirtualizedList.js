@@ -13,7 +13,8 @@ const VirtualizedList = ({ renderRow }) => {
       const resp = await axios.get(getUrl('three'));
       const recipes = resp.data.results.map(d => ({
         title: d.title,
-        fat: d.nutrition.nutrients[0].amount
+        fat: d.nutrition.nutrients[1].amount,
+        calories: d.nutrition.nutrients[0].amount
       }));
       setRecipes(recipes);
     }

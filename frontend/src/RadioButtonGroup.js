@@ -8,17 +8,10 @@ import FormLabel from '@mui/material/FormLabel';
 const RadioButtonGroup = () => {
   return (
     <FormControl component="fieldset">
-      <FormLabel component="legend">Nutrition</FormLabel>
-      <RadioGroup row aria-label="gender" name="row-radio-buttons-group">
-        <FormControlLabel value="female" control={<Radio />} label="Female" />
-        <FormControlLabel value="male" control={<Radio />} label="Male" />
-        <FormControlLabel value="other" control={<Radio />} label="Other" />
-        <FormControlLabel
-          value="disabled"
-          disabled
-          control={<Radio />}
-          label="other"
-        />
+      <FormLabel component="legend">Dietary Values</FormLabel>
+      <RadioGroup row aria-label="dietary values" name="row-radio-buttons-group">
+        <FormControlLabel value="fat" control={<Radio />} label="Fat" />
+        <FormControlLabel value="calories" control={<Radio />} label="Calories" />
       </RadioGroup>
     </FormControl>
   );
