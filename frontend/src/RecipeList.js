@@ -4,19 +4,20 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import Checkbox from '@mui/material/Checkbox';
+import Button from '@mui/material/Button';
 import VirtualizedList from './VirtualizedList';
 
-const RecipeList = () => {
+const RecipeList = ({ setSelectedRecipes }) => {
   const [checked, setChecked] = useState([]);
 
-  const handleToggle = (value) => () => {
-    const currentIndex = checked.indexOf(value);
-    const newChecked = [...checked];
+  const handleToggle = (obj) => () => {
+    let isChecked = checked.some(d => d.title === obj.title);
+    let newChecked = [...checked];
 
-    if (currentIndex === -1) {
-      newChecked.push(value);
+    if (!isChecked) {
+      newChecked.push(obj);
     } else {
-      newChecked.splice(currentIndex, 1);
+      newChecked = newChecked.filter(d => d.title !== obj.title);
     }
 
     setChecked(newChecked);
@@ -31,16 +32,15 @@ const RecipeList = () => {
         style={style}
         disablePadding
       >
-        <ListItemButton onClick={handleToggle(index)} dense>
+        <ListItemButton onClick={handleToggle({title: props.data[index].title, fat: props.data[index].fat})} dense>
           <ListItemIcon>
             <Checkbox
               edge="start"
-              checked={checked.indexOf(index) !== -1}
+              checked={checked.some(d => d.title === props.data[index].title)}
               tabIndex={-1}
               disableRipple
               inputProps={{ 'aria-labelledby': index }}
             />
-            {console.log(props)}
           </ListItemIcon>
           <ListItemText id={index} primary={`${props.data[index].title}`} />
         </ListItemButton>
@@ -49,7 +49,10 @@ const RecipeList = () => {
   }
 
   return (
-    <VirtualizedList renderRow={renderRow} />
+    <>
+      <VirtualizedList renderRow={renderRow} />
+      <Button variant="contained">Compare</Button>
+    </>
   )
 };
 
