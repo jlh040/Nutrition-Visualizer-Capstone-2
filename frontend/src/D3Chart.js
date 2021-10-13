@@ -15,7 +15,7 @@ class D3Chart {
       .append('g')
         .attr('transform', `translate(${MARGIN.LEFT}, ${MARGIN.TOP})`);
 
-    d3.json(getUrl())
+    d3.json(getUrl('three'))
       .then(resp => {
         vis.data = resp.results.map(d => {
           return {

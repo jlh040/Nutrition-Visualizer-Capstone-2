@@ -4,14 +4,13 @@ import getUrl from '../config';
 
 const useGetRecipes = async () => {
   try {
-    const resp = await axios.get(getUrl());
-    const recipes = resp.data.results.map(d => {
-      return {
-        title: d.title,
-        fat: d.nutrition.nutrients[0].amount
-      }
-    })
-    console.log(recipes);
+    const resp = await axios.get(getUrl('three'));
+    const recipes = resp.data.results.map(d => ({
+      title: d.title,
+      fat: d.nutrition.nutrients[0].amount
+    }));
+
+    return recipes;
   }
   catch(e) {
     console.log(e);

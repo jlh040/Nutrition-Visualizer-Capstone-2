@@ -6,7 +6,9 @@ import './App.css';
 import Grid from '@mui/material/Grid';
 
 const App = () => {
-  console.log(useGetRecipes());
+  let recipes;
+  useGetRecipes().then(d => recipes = d);
+  
   return (
     <div className="App">
         <Grid container justifyContent="center">
