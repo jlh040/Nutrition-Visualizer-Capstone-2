@@ -2,7 +2,7 @@ import * as d3 from 'd3';
 import getUrl from './config';
 
 const MARGIN = {TOP: 10, BOTTOM: 75, LEFT: 50, RIGHT: 10};
-const WIDTH = 800 - MARGIN.LEFT - MARGIN.RIGHT;
+const WIDTH = 900 - MARGIN.LEFT - MARGIN.RIGHT;
 const HEIGHT = 500 - MARGIN.TOP - MARGIN.BOTTOM;
 
 class D3Chart {
@@ -67,7 +67,7 @@ class D3Chart {
     .selectAll('text')
       .attr('text-anchor', 'end')
       .attr('dx', '-1em')
-      .attr('dy', '-7em')
+      .attr('dy', '-8em')
       .attr('font-size', '12px')
       .attr('transform', 'rotate(90)')
     
