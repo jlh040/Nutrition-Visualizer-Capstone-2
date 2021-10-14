@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import ChartWrapper from './ChartWrapper';
 import SelectForm from './SelectForm';
 import RecipeList from './RecipeList';
+import PlanDropdown from './PlanDropdown';
 import './App.css';
 import Grid from '@mui/material/Grid';
-import Button from '@mui/material/Button';
 
 const App = () => {
   const [selectedRecipes, setSelectedRecipes] = useState([]);
@@ -12,6 +12,11 @@ const App = () => {
 
   return (
     <div className="App">
+      <Grid container>
+        <Grid item xs={2}>
+          <PlanDropdown />
+        </Grid>
+      </Grid>
       <Grid container justifyContent="center">
         <Grid item xs={4}>
           <RecipeList setSelectedRecipes={setSelectedRecipes} />
