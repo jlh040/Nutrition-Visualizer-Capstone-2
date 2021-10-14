@@ -30,11 +30,11 @@ class D3Chart {
         console.log(e);
       });
     
-    vis.xLabel = vis.g.append('text')
-      .attr('x', WIDTH / 2)
-      .attr('y', HEIGHT + 30)
-      .attr('text-anchor', 'middle')
-      .text('Recipe names')
+    // vis.xLabel = vis.g.append('text')
+    //   .attr('x', WIDTH / 2)
+    //   .attr('y', HEIGHT + 30)
+    //   .attr('text-anchor', 'middle')
+    //   .text('Recipe names')
     
     vis.yLabel = vis.g.append('text')
       .attr('x', -(HEIGHT / 2))

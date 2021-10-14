@@ -18,11 +18,11 @@ const App = () => {
           <PlanDropdown plan={plan} setPlan={setPlan} />
         </Grid>
       </Grid>
-      <Grid container justifyContent="center">
-        <Grid item xs={3}>
+      <Grid container sx={{my: 5, border: 1, borderColor: 'primary.success', borderRadius: 1}} justifyContent="center">
+        <Grid item sx={{my: 'auto'}} xs={3}>
           <RecipeList setSelectedRecipes={setSelectedRecipes} plan={plan} />
         </Grid>
-        <Grid item xs={8}>
+        <Grid item sx={{mt: 5}} xs={8}>
           <SelectForm setDietarySelection={setDietarySelection} />
           <ChartWrapper selectedRecipes={selectedRecipes} dietarySelection={dietarySelection} />
         </Grid>
