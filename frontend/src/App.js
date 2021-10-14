@@ -19,7 +19,7 @@ const App = () => {
         </Grid>
       </Grid>
       <Grid container justifyContent="center">
-        <Grid item xs={4}>
+        <Grid item xs={3}>
           <RecipeList setSelectedRecipes={setSelectedRecipes} plan={plan} />
         </Grid>
         <Grid item xs={8}>
