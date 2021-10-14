@@ -2,6 +2,16 @@
   font-family: 'Roboto', sans-serif;
 }
 
-h1 {
+html {
+  background-color: #5CDB95;
+}
+
+.MuiTypography-root.MuiTypography-h3 {
   text-align: center;
+  color: #05386B;
+}
+
+.MuiBox-root.css-omnl36 {
+  background-color: #5CDB95;
+  color: #05386B;
 }

@@ -30,12 +30,6 @@ class D3Chart {
         console.log(e);
       });
     
-    // vis.xLabel = vis.g.append('text')
-    //   .attr('x', WIDTH / 2)
-    //   .attr('y', HEIGHT + 30)
-    //   .attr('text-anchor', 'middle')
-    //   .text('Recipe names')
-    
     vis.yLabel = vis.g.append('text')
       .attr('x', -(HEIGHT / 2))
       .attr('y', -34)
@@ -97,7 +91,7 @@ class D3Chart {
       .attr('y', d => y(dietarySelection === 'fat' ? d.fat : d.calories))
       .attr('height', d => HEIGHT - y(dietarySelection === 'fat' ? d.fat : d.calories))
       .attr('width', x.bandwidth())
-      .attr('fill', 'lime');
+      .attr('fill', '#05386B');
 
     // ENTER
     rects.enter().append('rect')
@@ -105,7 +99,7 @@ class D3Chart {
       .attr('y', d => y(dietarySelection === 'fat' ? d.fat : d.calories))
       .attr('height', d =>  HEIGHT - y(dietarySelection === 'fat' ? d.fat : d.calories))
       .attr('width', x.bandwidth())
-      .attr('fill', 'lime');
+      .attr('fill', '#05386B');
 
 
   }
