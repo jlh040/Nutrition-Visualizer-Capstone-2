@@ -7,7 +7,7 @@ import Checkbox from '@mui/material/Checkbox';
 import Button from '@mui/material/Button';
 import VirtualizedList from './VirtualizedList';
 
-const RecipeList = ({ setSelectedRecipes }) => {
+const RecipeList = ({ setSelectedRecipes, plan }) => {
   const [checked, setChecked] = useState([]);
 
   const handleToggle = (obj) => () => {
@@ -56,7 +56,7 @@ const RecipeList = ({ setSelectedRecipes }) => {
 
   return (
     <>
-      <VirtualizedList renderRow={renderRow} />
+      <VirtualizedList renderRow={renderRow} plan={plan} />
       <Button variant="contained" onClick={() => setSelectedRecipes(checked)}>Compare</Button>
     </>
   )

@@ -9,7 +9,7 @@ import Grid from '@mui/material/Grid';
 const App = () => {
   const [selectedRecipes, setSelectedRecipes] = useState([]);
   const [dietarySelection, setDietarySelection] = useState('fat');
-  const [plan, setPlan] = useState('');
+  const [plan, setPlan] = useState('slim down');
 
   return (
     <div className="App">
@@ -20,7 +20,7 @@ const App = () => {
       </Grid>
       <Grid container justifyContent="center">
         <Grid item xs={4}>
-          <RecipeList setSelectedRecipes={setSelectedRecipes} />
+          <RecipeList setSelectedRecipes={setSelectedRecipes} plan={plan} />
         </Grid>
         <Grid item xs={8}>
           <SelectForm setDietarySelection={setDietarySelection} />

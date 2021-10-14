@@ -21,8 +21,8 @@ const PlanDropdown = ({ plan, setPlan }) => {
           label="Plan"
           onChange={handleChange}
         >
-          <MenuItem value={'bulk up'}>Bulk Up</MenuItem>
           <MenuItem value={'slim down'}>Slim Down</MenuItem>
+          <MenuItem value={'bulk up'}>Bulk Up</MenuItem>
         </Select>
       </FormControl>
     </Box>

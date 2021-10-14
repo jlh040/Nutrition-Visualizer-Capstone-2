@@ -6,11 +6,11 @@ import CircularProgress from '@mui/material/CircularProgress';
 import { FixedSizeList } from 'react-window';
 
 
-const VirtualizedList = ({ renderRow }) => {
+const VirtualizedList = ({ renderRow, plan }) => {
   const [recipes, setRecipes] = useState(null)
   useEffect(() => {
     const getData = async () => {
-      const resp = await axios.get(getUrl('three'));
+      const resp = await axios.get(getUrl(plan));
       const recipes = resp.data.results.map(d => ({
         title: d.title,
         fat: d.nutrition.nutrients[1].amount,
@@ -19,7 +19,7 @@ const VirtualizedList = ({ renderRow }) => {
       setRecipes(recipes);
     }
     getData();
-  }, []);
+  }, [plan]);
 
   return (
     (recipes ? <Box
