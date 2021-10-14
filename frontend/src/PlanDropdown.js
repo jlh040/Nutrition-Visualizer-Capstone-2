@@ -1,13 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Box from '@mui/material/Box';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 
-const PlanDropdown = () => {
-  const [plan, setPlan] = useState('');
-
+const PlanDropdown = ({ plan, setPlan }) => {
   const handleChange = (event) => {
     setPlan(event.target.value);
   };
