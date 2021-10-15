@@ -57,7 +57,21 @@ const RecipeList = ({ setSelectedRecipes, plan }) => {
   return (
     <>
       <VirtualizedList renderRow={renderRow} plan={plan} checked={checked} setChecked={setChecked} />
-      <Button variant="contained" sx={{mt: 3, width: "100%"}} onClick={() => setSelectedRecipes(checked)}>Compare</Button>
+      {checked.length === 3 ? 
+      <Button
+        variant="contained" 
+        sx={{mt: 3, width: "100%"}} 
+        onClick={() => setSelectedRecipes(checked)}
+        >
+          Compare
+      </Button> : 
+      <Button
+        variant="contained"
+        sx={{mt: 3, width: "100%"}}
+        disabled
+      >
+        Please select three recipes
+      </Button>}
     </>
   )
 };
