@@ -5,6 +5,7 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import Checkbox from '@mui/material/Checkbox';
 import Button from '@mui/material/Button';
+import Tooltip from '@mui/material/Tooltip';
 import VirtualizedList from './VirtualizedList';
 
 const RecipeList = ({ setSelectedRecipes, plan }) => {
@@ -31,25 +32,27 @@ const RecipeList = ({ setSelectedRecipes, plan }) => {
         style={style}
         disablePadding
       >
-        <ListItemButton 
-          onClick={handleToggle({
-              title: props.data[index].title, 
-              fat: props.data[index].fat,
-              calories: props.data[index].calories
-          })} 
-          dense
-        >
-          <ListItemIcon>
-            <Checkbox
-              edge="start"
-              checked={checked.some(d => d.title === props.data[index].title)}
-              tabIndex={-1}
-              disableRipple
-              inputProps={{ 'aria-labelledby': index }}
-            />
-          </ListItemIcon>
-          <ListItemText id={index} primary={`${props.data[index].title}`} />
-        </ListItemButton>
+        <Tooltip title={props.data[index].summary} placement="right-start">
+          <ListItemButton 
+            onClick={handleToggle({
+                title: props.data[index].title, 
+                fat: props.data[index].fat,
+                calories: props.data[index].calories
+            })} 
+            dense
+          >
+            <ListItemIcon>
+              <Checkbox
+                edge="start"
+                checked={checked.some(d => d.title === props.data[index].title)}
+                tabIndex={-1}
+                disableRipple
+                inputProps={{ 'aria-labelledby': index }}
+              />
+            </ListItemIcon>
+            <ListItemText id={index} primary={`${props.data[index].title}`} />
+          </ListItemButton>
+        </Tooltip>
       </ListItem>
     )
   }

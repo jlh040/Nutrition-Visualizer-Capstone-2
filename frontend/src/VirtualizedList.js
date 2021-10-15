@@ -14,7 +14,8 @@ const VirtualizedList = ({ renderRow, plan, setChecked }) => {
       const recipes = resp.data.results.map(d => ({
         title: d.title,
         fat: d.nutrition.nutrients[1].amount,
-        calories: d.nutrition.nutrients[0].amount
+        calories: d.nutrition.nutrients[0].amount,
+        summary: d.summary
       }));
       setChecked([]);
       setRecipes(recipes);
