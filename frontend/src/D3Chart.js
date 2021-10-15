@@ -83,15 +83,17 @@ class D3Chart {
     
     // EXIT
     rects.exit()
-      .remove();
+      .transition(500)
+        .remove();
 
     // UPDATE
     rects
-      .attr('x', d => x(d.title))
-      .attr('y', d => y(dietarySelection === 'fat' ? d.fat : d.calories))
-      .attr('height', d => HEIGHT - y(dietarySelection === 'fat' ? d.fat : d.calories))
-      .attr('width', x.bandwidth())
-      .attr('fill', '#05386B');
+      .transition(500)
+        .attr('x', d => x(d.title))
+        .attr('y', d => y(dietarySelection === 'fat' ? d.fat : d.calories))
+        .attr('height', d => HEIGHT - y(dietarySelection === 'fat' ? d.fat : d.calories))
+        .attr('width', x.bandwidth())
+        .attr('fill', '#05386B');
 
     // ENTER
     rects.enter().append('rect')
@@ -99,7 +101,7 @@ class D3Chart {
       .attr('width', x.bandwidth())
       .attr('fill', '#05386B')
       .attr('y', HEIGHT)
-      .transition(1000)
+      .transition(500)
         .attr('y', d => y(dietarySelection === 'fat' ? d.fat : d.calories))
         .attr('height', d =>  HEIGHT - y(dietarySelection === 'fat' ? d.fat : d.calories));
 
