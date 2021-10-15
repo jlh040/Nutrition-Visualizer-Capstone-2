@@ -75,6 +75,7 @@ class D3Chart {
     const yAxisCall = d3.axisLeft(y);
     
     vis.yAxisGroup
+      .transition(500)
       .call(yAxisCall);
 
     // JOIN
@@ -84,6 +85,8 @@ class D3Chart {
     // EXIT
     rects.exit()
       .transition(500)
+      .attr('height', 0)
+      .attr('y', HEIGHT)
         .remove();
 
     // UPDATE
