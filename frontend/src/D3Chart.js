@@ -48,6 +48,8 @@ class D3Chart {
 
     vis.data = selectedRecipes ? selectedRecipes : vis.data;
 
+    vis.yLabel.text(`${dietarySelection === 'fat' ? 'Amount of fat (grams)' : 'Number of calories (kcal)'}`);
+
     const x = d3.scaleBand()
       .domain(vis.data.map(d => d.title))
       .range([0, WIDTH])
