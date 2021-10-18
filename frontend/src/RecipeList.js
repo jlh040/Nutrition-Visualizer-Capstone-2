@@ -9,20 +9,27 @@ import Tooltip from '@mui/material/Tooltip';
 import VirtualizedList from './VirtualizedList';
 
 const RecipeList = ({ setSelectedRecipes, plan }) => {
+  // holds the recipes that are currently selected
   const [checked, setChecked] = useState([]);
 
+  // if a recipe is clicked on this will pass an object of information into checked;
+  // also controls whether a checkmark appears
   const handleToggle = (obj) => () => {
     let isChecked = checked.some(d => d.title === obj.title);
     let newChecked = [...checked];
 
     if (!isChecked) {
+      // if item is not checked, add it to newChecked
       newChecked.push(obj);
     } else {
+      // otherwise, remove it from newChecked
       newChecked = newChecked.filter(d => d.title !== obj.title);
     }
+    // update checked with the new list of checked recipes
     setChecked(newChecked);
   };
 
+  // controls what each list item looks like in our virtualized list of recipes
   const renderRow = props => {
     const { index, style } = props;
 

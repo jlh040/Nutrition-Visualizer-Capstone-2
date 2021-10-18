@@ -1,36 +1,25 @@
-import * as d3 from 'd3';
-import getUrl from './config';
+import { select, axisLeft, scaleBand, scaleLinear, axisBottom, min, max} from 'd3';
 
+// set the dimensions and margin for the SVG container
 const MARGIN = {TOP: 10, BOTTOM: 75, LEFT: 50, RIGHT: 10};
 const WIDTH = 900 - MARGIN.LEFT - MARGIN.RIGHT;
 const HEIGHT = 500 - MARGIN.TOP - MARGIN.BOTTOM;
 
 class D3Chart {
+  // holds all code that only needs to run once
   constructor(element) {
+    // store the value of 'this' so we don't lose its context
     const vis = this;
-    vis.g = d3.select(element)
-      .append('svg')
-        .attr('preserveAspectRatio', 'xMinYMin meet')
+
+    vis.g = select(element) // select the parent div from ChartWrapper.js
+      .append('svg') // append an svg element to it
+        .attr('preserveAspectRatio', 'xMinYMin meet') // make the svg element responsive
         .attr('viewBox',
         '0 0 ' + (WIDTH + MARGIN.LEFT + MARGIN.RIGHT) + ' ' + (HEIGHT + MARGIN.TOP + MARGIN.BOTTOM))
-      .append('g')
-        .attr('transform', `translate(${MARGIN.LEFT}, ${MARGIN.TOP})`);
-
-    d3.json(getUrl('three'))
-      .then(resp => {
-        vis.data = resp.results.map(d => {
-          return {
-            title: d.title,
-            fat: d.nutrition.nutrients[1].amount,
-            calories: d.nutrition.nutrients[0].amount
-          }
-        })
-        vis.update();
-      })
-      .catch(e => {
-        console.log(e);
-      });
+      .append('g') // append a group element to the svg
+        .attr('transform', `translate(${MARGIN.LEFT}, ${MARGIN.TOP})`); // shift the group element so the labels and axes show up
     
+    // append the y label to the group alement
     vis.yLabel = vis.g.append('text')
       .attr('x', -(HEIGHT / 2))
       .attr('y', -34)
@@ -38,27 +27,35 @@ class D3Chart {
       .text('Amount of fat (grams)')
       .attr('transform', 'rotate(-90)')
     
+    // append the x axis container to the group element
     vis.xAxisGroup = vis.g.append('g')
       .attr('transform', `translate(0, ${HEIGHT})`);
     
+    // append the y axis container to the group element
     vis.yAxisGroup = vis.g.append('g');
   }
 
+  // holds all code that needs to be updated
   update(selectedRecipes, dietarySelection) {
     const vis = this;
 
-    vis.data = selectedRecipes ? selectedRecipes : vis.data;
+    // store the selected recipes on the object
+    vis.data = selectedRecipes;
 
+    // change the y label according to which dietary value the user selected
     vis.yLabel.text(`${dietarySelection === 'fat' ? 'Amount of fat (grams)' : 'Number of calories (kcal)'}`);
 
-    const x = d3.scaleBand()
+    // create the scale for the x axis
+    const x = scaleBand()
       .domain(vis.data.map(d => d.title))
       .range([0, WIDTH])
       .paddingInner(0.5)
       .paddingOuter(0.1);
 
-    const xAxisCall = d3.axisBottom(x);
+    // the scale applies to the bottom of the graph
+    const xAxisCall = axisBottom(x);
 
+    // set the position of the x axis text
     vis.xAxisGroup
       .call(xAxisCall)
     .selectAll('text')
@@ -68,31 +65,34 @@ class D3Chart {
       .attr('font-size', '12px')
       .attr('transform', 'rotate(90)')
     
-    const y = d3.scaleLinear()
+    // create the scale for the y axis
+    const y = scaleLinear()
       .domain([
-        d3.min(vis.data, d => dietarySelection === 'fat' ? d.fat : d.calories) * 0.5,
-        d3.max(vis.data, d => dietarySelection === 'fat' ? d.fat : d.calories)
+        min(vis.data, d => dietarySelection === 'fat' ? d.fat : d.calories) * 0.5,
+        max(vis.data, d => dietarySelection === 'fat' ? d.fat : d.calories)
       ])
       .range([HEIGHT, 0]);
     
-    const yAxisCall = d3.axisLeft(y);
+    // the y axis tick marks show up on the left of the y axis
+    const yAxisCall = axisLeft(y);
     
+    // make the y axis show up and implement a transition when it changes
     vis.yAxisGroup
       .transition(500)
       .call(yAxisCall);
 
-    // JOIN
+    // join the data on the page with the new data via an object of arrays
     const rects = vis.g.selectAll('rect')
       .data(vis.data);
     
-    // EXIT
+    // take the data on the page that is not in our new data array and remove it
     rects.exit()
       .transition(500)
       .attr('height', 0)
       .attr('y', HEIGHT)
         .remove();
 
-    // UPDATE
+    // update the data that still exists on the page
     rects
       .transition(500)
         .attr('x', d => x(d.title))
@@ -101,7 +101,7 @@ class D3Chart {
         .attr('width', x.bandwidth())
         .attr('fill', '#05386B');
 
-    // ENTER
+    // add in the new data
     rects.enter().append('rect')
       .attr('x', d => x(d.title))
       .attr('width', x.bandwidth())
@@ -110,8 +110,6 @@ class D3Chart {
       .transition(500)
         .attr('y', d => y(dietarySelection === 'fat' ? d.fat : d.calories))
         .attr('height', d =>  HEIGHT - y(dietarySelection === 'fat' ? d.fat : d.calories));
-
-
   }
 }
 

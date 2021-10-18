@@ -7,7 +7,10 @@ import { FixedSizeList } from 'react-window';
 
 
 const VirtualizedList = ({ renderRow, plan, setChecked }) => {
-  const [recipes, setRecipes] = useState(null)
+  // holds all the recipes on the page
+  const [recipes, setRecipes] = useState(null);
+
+  // sends a request to get all the recipes
   useEffect(() => {
     const getData = async () => {
       const resp = await axios.get(getUrl(plan));
@@ -21,7 +24,7 @@ const VirtualizedList = ({ renderRow, plan, setChecked }) => {
       setRecipes(recipes);
     }
     getData();
-  }, [plan]);
+  }, [plan]); // each time someone switches their plan, we request the appropriate recipes
 
   return (
     (recipes ? <Box

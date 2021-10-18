@@ -8,9 +8,9 @@ import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 
 const App = () => {
-  const [selectedRecipes, setSelectedRecipes] = useState([]);
-  const [dietarySelection, setDietarySelection] = useState('fat');
-  const [plan, setPlan] = useState('slim down');
+  const [selectedRecipes, setSelectedRecipes] = useState([]); // holds the currently selected recipes
+  const [dietarySelection, setDietarySelection] = useState('fat'); // holds either 'fat' or 'calories'
+  const [plan, setPlan] = useState('slim down'); // holds 'bulk up' or 'slim down'
 
   return (
     <div className="App">

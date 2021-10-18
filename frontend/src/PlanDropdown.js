@@ -6,6 +6,7 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 
 const PlanDropdown = ({ plan, setPlan }) => {
+  // event handler to make the dropdown a controlled component
   const handleChange = (event) => {
     setPlan(event.target.value);
   };
