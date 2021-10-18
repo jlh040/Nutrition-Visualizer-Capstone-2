@@ -31,7 +31,7 @@ const VirtualizedList = ({ renderRow, plan, setChecked }) => {
         height={400}
         width={360}
         itemSize={46}
-        itemCount={10}
+        itemCount={15}
         itemData={recipes}
         overscanCount={5}
       >
