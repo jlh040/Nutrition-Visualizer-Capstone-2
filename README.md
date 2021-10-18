@@ -1,6 +1,6 @@
 # Summer Body
 
-Deployment: https://github.com/jlh040/Summer-Body-Capstone-2
+Deployment: https://summer-body.surge.sh/
 
 ## Goal:
 
