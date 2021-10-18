@@ -30,7 +30,7 @@ Check out the finished application here: https://summer-body.surge.sh/
 - The flow of the site is as simple and seamless as possible.
 - Everything is achieved through the landing page.
 - When the user goes to the site, they will see an empty graph waiting to be passed some data. They will also see a **scrollable** list of recipes, and a dropdown at the top of the page to select their plan.
-- The user must select exactly three recipes, once this is done, the buttom below the list will switch from disabled to enabled, prompting the user to click it.
+- The user must select exactly three recipes, once this is done, the button below the list will switch from disabled to enabled, prompting the user to click it.
 - Once the compare button is clicked, the bars for the bar chart will show up on the page.
 - The user can then switch out the recipes and/or swap between fat and calories.
 
@@ -41,4 +41,6 @@ Check out the finished application here: https://summer-body.surge.sh/
   1. type `git clone https://github.com/jlh040/Summer-Body-Capstone-2.git`
   2. then `cd` into the *frontend* folder
   3. type `npm install` to download all of the dependencies
-  4. enter `npm start` and the application will open up in your browser on http://localhost:3000
+  4. now, go to the [Spoonacular website](https://spoonacular.com/food-api/) and sign up for an API key.
+  5. create a file called apiKey.js, put the API key in that file, and export the key from that file.
+  6. lastly, enter `npm start` and the application will open up in your browser on http://localhost:3000
