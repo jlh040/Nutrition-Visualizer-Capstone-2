@@ -18,8 +18,16 @@ it('shows the graph upon page render', () => {
   expect(getByText('Amount of fat (grams)')).toBeInTheDocument();
 });
 
-// plan dropdown displays correctly;
+// plan dropdown displays correctly
 it('shows the plan dropdown upon page render', () => {
   const { getByText } = render(<App />);
   expect(getByText('Slim Down (Low fat foods)')).toBeInTheDocument();
 });
+
+// dietary value selector displays correctly
+it('shows the list of dietary values', () => {
+  const { getByText } = render(<App />);
+
+  expect(getByText('Fat')).toBeInTheDocument();
+  expect(getByText('Calories')).toBeInTheDocument();
+})
