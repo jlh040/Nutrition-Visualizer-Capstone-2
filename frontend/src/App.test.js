@@ -18,10 +18,8 @@ it('shows the graph upon page render', () => {
   expect(getByText('Amount of fat (grams)')).toBeInTheDocument();
 });
 
-// virtualized list of food displays correctly
-it('shows the list of foods upon page render', () => {
+// plan dropdown displays correctly;
+it('shows the plan dropdown upon page render', () => {
   const { getByText } = render(<App />);
-  expect(getByText('Nigerian snail stew')).toBeInTheDocument();
-  expect(getByText('Summer Berry Salad')).toBeInTheDocument();
-  expect(getByText('Doughnuts')).toBeInTheDocument();
+  expect(getByText('Slim Down (Low fat foods)')).toBeInTheDocument();
 });
