@@ -30,4 +30,4 @@ it('shows the list of dietary values', () => {
 
   expect(getByText('Fat')).toBeInTheDocument();
   expect(getByText('Calories')).toBeInTheDocument();
-})
+});
