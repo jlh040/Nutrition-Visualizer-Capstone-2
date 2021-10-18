@@ -1,5 +1,7 @@
 # Summer Body
 
+Deployment: https://github.com/jlh040/Summer-Body-Capstone-2
+
 ## Goal:
 
 - The goal of this application is to help users craft their summer body, by providing nutritional data for their meals.
