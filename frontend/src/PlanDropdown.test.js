@@ -8,6 +8,6 @@ it('renders without crashing', () => {
 
 // correctly renders the plan label
 it('shows the label for the dropdown', () => {
-  const { getByLabelText } = render(<PlanDropdown />);
+  const { getByLabelText, getByRole } = render(<PlanDropdown />);
   expect(getByLabelText('Plan')).toBeInTheDocument();
 });
