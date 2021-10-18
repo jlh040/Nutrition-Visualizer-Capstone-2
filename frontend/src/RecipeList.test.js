@@ -13,4 +13,3 @@ it('does not allow the user to compare recipes upon page render', () => {
   expect(getByText('Please select three recipes')).toBeInTheDocument();
   expect(queryByText('Compare')).not.toBeInTheDocument();
 });
-
