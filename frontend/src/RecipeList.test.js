@@ -5,3 +5,9 @@ import RecipeList from './RecipeList';
 it('renders without crashing', () => {
   render(<RecipeList />);
 });
+
+// the button text tells the user to pick recipes when the page first loads
+it('does not allow the user to compare recipes upon page render', () => {
+  const { getByText } = render(<RecipeList />);
+  expect(getByText('Please select three recipes')).toBeInTheDocument();
+})
