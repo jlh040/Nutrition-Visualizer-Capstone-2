@@ -7,7 +7,7 @@ it('renders without crashing', () => {
 });
 
 // check that the buttons show up
-it('can be clicked by a user', () => {
+it('shows two buttons', () => {
   const { getByDisplayValue } = render(<RadioButtonGroup />);
 
   // expect the fat button to show up
