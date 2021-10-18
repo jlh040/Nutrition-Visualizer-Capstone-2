@@ -10,8 +10,9 @@ class D3Chart {
     const vis = this;
     vis.g = d3.select(element)
       .append('svg')
-        .attr('width', WIDTH + MARGIN.LEFT + MARGIN.RIGHT)
-        .attr('height', HEIGHT + MARGIN.TOP + MARGIN.BOTTOM)
+        .attr('preserveAspectRatio', 'xMinYMin meet')
+        .attr('viewBox',
+        '0 0 ' + (WIDTH + MARGIN.LEFT + MARGIN.RIGHT) + ' ' + (HEIGHT + MARGIN.TOP + MARGIN.BOTTOM))
       .append('g')
         .attr('transform', `translate(${MARGIN.LEFT}, ${MARGIN.TOP})`);
 

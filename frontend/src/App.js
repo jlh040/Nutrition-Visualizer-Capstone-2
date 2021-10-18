@@ -15,22 +15,22 @@ const App = () => {
   return (
     <div className="App">
       <Grid container>
-        <Grid item xs={2}>
+        <Grid item  xs={12} md={2}>
           <PlanDropdown plan={plan} setPlan={setPlan} />
         </Grid>
       </Grid>
       <Grid container>
-        <Grid item xs={12}>
+        <Grid item sx={{mt: 1}} xs={12}>
           <Typography variant="h3" component="div" gutterBottom>
             Craft your summer body!
           </Typography>
         </Grid>
       </Grid>
       <Grid container sx={{my: 5, border: 1, borderRadius: 1}} justifyContent="center">
-        <Grid item sx={{my: 'auto'}} xs={3}>
+        <Grid item sx={{my: 'auto'}} xs={12} md={3}>
           <RecipeList setSelectedRecipes={setSelectedRecipes} plan={plan} />
         </Grid>
-        <Grid item sx={{mt: 5}} xs={8}>
+        <Grid item sx={{mt: 5}} xs={12} md={8}>
           <SelectForm setDietarySelection={setDietarySelection} />
           <ChartWrapper selectedRecipes={selectedRecipes} dietarySelection={dietarySelection} />
         </Grid>
